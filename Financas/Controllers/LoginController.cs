@@ -18,12 +18,12 @@ namespace Financas.Controllers
         public ActionResult Autentica(string login, string senha)
         {
             if(WebSecurity.Login(login, senha)){
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Movimentacao");
             }
             else
             {
                 ModelState.AddModelError("login.Invalido", "Login ou senha incorretos");
-                return View("Index", "Movimentacao");
+                return RedirectToAction("Index");
             }
         }
 
